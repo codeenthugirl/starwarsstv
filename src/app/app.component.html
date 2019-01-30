@@ -1,2 +1,260 @@
-<h1 style= "color:blue">Welcome to Star wars App</h1>
-<app-listofall></app-listofall>
+<div id= "background">
+<h1>Welcome to Star wars App</h1>
+<div *ngIf="datas.length>0">
+	<button (click)="gotopreviousscreen()"> << Back </button>
+</div>
+<div *ngIf="datas.length<=0">
+<div *ngFor="let i of items">
+	<h4 (click)="getstarwarsdata(i)">{{i}}</h4>
+	<img src= "assets/{{i}}.jpg" >
+</div>
+</div>
+<div *ngIf="datas.length>0 && people == null && planet == null && film == null && species == null && starships == null && vehicles == null">
+<div *ngFor="let d of datas">
+	<h4 (click)="getpeopledata(d.category,d.url)">{{d.name}}</h4>
+</div>
+</div>
+<div *ngIf="people != null">
+	<table>
+	<tr>
+	<img src= "assets/characters/{{people.id}}.jpg" >
+	</tr>
+	<tr>
+		<td><h4>Name:</h4></td>
+	    <td><h4>{{people.name}}</h4></td>
+    </tr>
+    <tr>
+    	<td><h4> Height: </h4></td>
+	    <td><h4>{{people.height}}</h4></td>
+    </tr>
+    <tr>
+    	<td><h4> Mass: </h4></td>
+		<td> <h4> {{people.mass}} </h4> </td>
+    </tr>
+    <tr>
+    	<td><h4> Hair Color: </h4></td>
+		<td><h4>{{people.haircolor}}</h4> </td>
+    </tr>
+    <tr>
+    	<td><h4>Eye Color: </h4></td>
+	    <td> <h4>{{people.eyecolor}} </h4> </td>
+    </tr>
+    <tr>
+    	<td><h4> Birth Year: </h4> </td>
+		<td><h4>{{people.birthyear}}</h4></td>
+    </tr>
+    <tr>
+    	<td> <h4> Gender: </h4></td>
+		<td><h4>{{people.gender}}</h4></td>
+	</tr>
+	<tr>
+		<td><h4> Comments</h4></td>
+		<td><input type="text"/></td>
+		<td><button>Save</button>
+	</tr>
+	<tr>
+	<td><google-plus></google-plus></td>
+	<td><tweet text="{{people.name}} is my favorite character"></tweet></td>
+	<td><linkedin-share></linkedin-share></td>
+	</tr>
+	</table>
+</div>
+<div *ngIf="planet != null">
+	<table>
+		<tr>
+			<img src= "assets/planets/{{planet.id}}.jpg" >
+		</tr>
+	
+	<tr>
+		<td> <h4> Name: </h4> </td>
+	    <td> <h4>{{planet.name}}</h4> </td>
+	</tr>
+	<tr>
+		<td> <h4> Rotation Period : </h4> </td>
+		<td> <h4>{{planet.rotationperiod}}</h4></td>
+	</tr>
+	<tr>
+		<td><h4> Diameter: </h4></td>
+		<td><h4>{{planet.diameter}}</h4></td>
+    </tr>
+    <tr>
+    	<td> <h4> Climate: </h4> </td>
+		<td><h4>{{planet.climate}}</h4></td>
+    </tr>
+    <tr>
+    	<td> <h4> Gravity </h4> </td>
+		<td><h4>{{planet.gravity}}</h4></td>
+	</tr>
+	<tr>
+		<td><h4> Comments</h4></td>
+		<td><input type="text"/></td>
+		<td><button>Save</button>
+	</tr>
+	<tr>
+	<td><google-plus></google-plus></td>
+	<td><tweet text="{{planet.name}} is my favorite planet"></tweet></td>
+	<td><linkedin-share></linkedin-share></td>
+</tr>
+	</table>
+</div>
+<div *ngIf="film != null">
+	<table>
+		<tr>
+	<img src= "assets/films/{{film.id}}.jpg" >
+</tr>
+<tr>
+	<td> <h4> Title </h4> </td>
+	<td> <h4>{{film.title}}</h4> </td>
+</tr>
+<tr>
+	<td> <h4> Episode Id: </h4></td>
+	<td> <h4>{{film.episodeid}}</h4> </td>
+</tr>
+<tr>
+	<td> <h4> Director </h4> </td>
+	<td> <h4>{{film.director}}</h4> </td>
+</tr>
+<tr>
+	<td> <h4>  Producer: </h4> </td>
+	<td> <h4>{{film.producer}}</h4> </td>
+</tr>
+<tr>
+	<td> <h4> Release Date </h4> </td>
+	<td> <h4>{{film.releasedate}}</h4> </td>
+</tr>
+<tr>
+	<td><h4> Comments</h4></td>
+	<td><input type="text"/></td>
+	<td><button>Save</button>
+</tr>
+<tr>
+<td><google-plus></google-plus></td>
+<td><tweet text="{{film.title}} is my favorite film"></tweet></td>
+<td><linkedin-share></linkedin-share></td>
+</tr>
+	</table>
+</div>
+<div *ngIf="species != null">
+<table>
+<tr>
+	<img src= "assets/species/{{species.id}}.jpg" >
+</tr>
+<tr>
+	<td> <h4> Name : </h4> </td>
+	<td> <h4>{{species.name}}</h4> </td>
+</tr>
+<tr>
+	<td> <h4> Classification : </h4> </td>
+	<td><h4>{{species.classification}}</h4></td>
+</tr>
+<tr>
+	<td> <h4> Designation: </h4></td>
+	<td><h4>{{species.designation}}</h4></td>
+</tr>
+<tr>
+	<td> <h4> Average Height: </h4> </td>
+	<td> <h4>{{species.average_height}}</h4></td>
+</tr>
+<tr>
+	<td><h4> Skin Color: </h4></td>
+	<td> <h4>{{species.skin_colors}}</h4> </td>
+</tr>
+<tr>
+	<td> <h4> Eye Color: </h4></td>
+	<td><h4>{{species.eye_colors}}</h4></td>
+</tr>
+<tr>
+	<td><h4> Comments</h4></td>
+	<td><input type="text"/></td>
+	<td><button>Save</button>
+</tr>
+<tr>
+<td><google-plus></google-plus></td>
+<td><tweet text="{{species.name}} is my favorite species"></tweet></td>
+<td><linkedin-share></linkedin-share></td>
+</tr>
+</table>
+</div>
+<div *ngIf="starships != null">
+<table>
+<tr>
+	<img src= "assets/characters/{{starships.id}}.jpg" >
+</tr>
+<tr>
+	<td> <h4> Name : </h4></td>
+	<td><h4>{{starships.name}}</h4></td>
+</tr>
+<tr>
+	<td> <h4> Model :  </h4></td>
+	<td><h4>{{starships.model}}</h4></td>
+</tr>
+<tr>
+	<td> <h4> Manufacturer : </h4></td>
+	<td><h4>{{starships.manufacturer}}</h4></td>
+</tr>
+<tr>
+	<td> <h4> Cost in Credits : </h4></td>
+    <td><h4>{{starships.costincredits}}</h4></td>
+</tr>
+<tr>
+	<td> <h4> Length: </h4></td>
+	<td><h4>{{starships.length}}</h4></td>
+</tr>
+<tr>
+	<td> <h4>Crew: </h4></td>
+	<td><h4>{{starships.crew}}</h4></td>
+</tr>
+<tr>
+	<td><h4> Comments</h4></td>
+	<td><input type="text"/></td>
+	<td><button>Save</button>
+</tr>
+<tr>
+<td><google-plus></google-plus></td>
+<td><tweet text="{{starships.name}} is my favorite starship"></tweet></td>
+<td><linkedin-share></linkedin-share></td>
+</tr>
+</table>
+</div>
+<div *ngIf="vehicles != null">
+<table>
+<tr>
+	<img src= "assets/vehicles/{{vehicles.id}}.jpg" >
+</tr>
+<tr>
+	<td> <h4> Name: </h4></td>
+	<td><h4>{{vehicles.name}}</h4></td>
+</tr>
+<tr>
+	<td> <h4>Model : </h4></td>
+	<td> <h4>{{vehicles.model}}</h4> </td>
+</tr>
+<tr>
+	<td> <h4>Manufacturer: </h4></td>
+	<td><h4>{{vehicles.manufacturer}}</h4></td>
+</tr>
+<tr>
+	<td><h4>Cost in Credits :</h4></td>
+	<td><h4>{{vehicles.costincredits}}</h4></td>
+</tr>
+<tr>
+	<td> <h4> Length: </h4></td>
+	<td><h4>{{vehicles.length}}</h4></td>
+</tr>
+<tr>
+	<td><h4>Crew: </h4></td>
+	<td><h4>{{vehicles.crew}}</h4></td>
+</tr>
+<tr>
+	<td><h4> Comments</h4></td>
+	<td><input type="text"/></td>
+	<td><button>Save</button>
+</tr>
+<tr>
+<td><google-plus></google-plus></td>
+<td><tweet text="{{vehicles.name}} is my favorite vehicle"></tweet></td>
+<td><linkedin-share></linkedin-share></td>
+</tr>
+</table>
+</div>
+</div>

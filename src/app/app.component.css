@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+
+h1{
+	font-family: Courgette;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 40px;
+	color: red;
+}
+
+h4{
+	font-family: Courgette;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 30px;
+	color: green;
+}
+
+#background {
+	background-color: black;
+
+}
+
+#button {
+	button.width: 40px;
+	button.height: 40px;
+}
